@@ -1,4 +1,4 @@
-import { Skill } from '../models/skills.js'
+import { Skill } from '../models/skill.js'
 
 function index(req, res) {
   Skill.find({})
@@ -13,6 +13,11 @@ function index(req, res) {
   })
 }
 
+function newSkill(req, res) {
+  res.render('skills/new')
+}
+
 export {
-  index
+  index,
+  newSkill as new
 }
