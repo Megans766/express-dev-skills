@@ -27,6 +27,8 @@ app.use(
     path.join(path.dirname(fileURLToPath(import.meta.url)), 'public')
   )
 )
+app.use('/', indexRouter)
+app.use('/users', usersRouter)
 
 // mounted routers
 app.use('/', indexRouter)
