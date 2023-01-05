@@ -9,7 +9,13 @@
 <body>
   <h1>Express Dev Skills</h1>
   <ul>
-    
+    <% skills.forEach(skill => { %>
+      <li>
+        <%= skill.skill %>
+        -
+        <%= skill.learned ? 'learned' : 'currently learning' %>
+      </li>
+    <% }) %>
   </ul>
 </body>
 </html>
