@@ -4,6 +4,7 @@ import express from 'express'
 import path from 'path'
 import { fileURLToPath } from 'url'
 import logger from 'morgan'
+import methodOverride from 'method-override'
 
 //connect to database
 import "./config/database.js"
@@ -21,6 +22,11 @@ app.set(
   path.join(path.dirname(fileURLToPath(import.meta.url)), 'views')
 )
 app.set('view engine', 'ejs')
+
+app.use(function(req, res, next) {
+  req.time = new Data().toLocaleTimeString()
+  next()
+})
 
 // middleware
 app.use(logger('dev'))
