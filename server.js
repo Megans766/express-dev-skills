@@ -24,7 +24,7 @@ app.set(
 app.set('view engine', 'ejs')
 
 app.use(function(req, res, next) {
-  req.time = new Data().toLocaleTimeString()
+  req.time = new Date().toLocaleTimeString()
   next()
 })
 
@@ -37,6 +37,7 @@ app.use(
     path.join(path.dirname(fileURLToPath(import.meta.url)), 'public')
   )
 )
+app.use(methodOverride('_method'))
 
 // mounted routers
 app.use('/', indexRouter)
