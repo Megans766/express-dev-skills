@@ -18,9 +18,9 @@ function newSkill(req, res) {
 }
 
 function create(req, res) {
+  req.body.learned = false
   Skill.create(req.body)
   .then(skill => {
-    console.log(skill.skill, "this is the log")
     res.redirect('/skills')
   })
   .catch(error => {
